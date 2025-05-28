@@ -231,8 +231,9 @@ public class Controller02 {
             System.out.println("c.getClass() = " + c.getClass());
             if (c instanceof HttpServletRequest d) {
                 String method = d.getMethod();
+                String servletPath = d.getServletPath();
                 System.out.println("method = " + method);
-                System.out.println("servletPath = " + );
+                System.out.println("servletPath = " + servletPath);
             }
         }
         System.out.println("a = " + a);
