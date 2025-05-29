@@ -1,9 +1,13 @@
 package com.example.spring.controller;
 
-import com.example.spring.dto.MyBean051;
+import com.example.spring.dto.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.imageio.stream.ImageOutputStreamImpl;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("main5")
@@ -15,9 +19,141 @@ public class Controller05 {
 
         // atribyte 가 javaBeans(dto)
         MyBean051 m = new MyBean051();
+        m.setAge(20);
+        m.setAddress("seoul");
+        m.setName("trump");
+
         model.addAttribute("obj",m);
 
         //forward to /templates/main5/sub1.html
         return "main5/sub1";
+    }
+    
+    // 연습: 아래 코드르 보고 나머지 코드를 환성하세요
+    @RequestMapping("sub2")
+    public String sub2(Model model) {
+        MyBean052 obj = new MyBean052();
+        obj.setHome("ny");
+        obj.setScore(98.76);
+        obj.setHeight(180.5);
+        obj.setNickName("tiger");
+
+        model.addAttribute("attr",obj);
+
+        return "main5/sub2";
+    }
+
+    @RequestMapping("sub3")
+    public String sub3(Model model) {
+        MyBean053 obj = new MyBean053();
+        obj.setWeight(78.8);
+        obj.setInfo("info");
+        obj.setStudentNumber(123);
+        obj.setMarried(false);
+
+        model.addAttribute("val",obj);
+
+        return "main5/sub3";
+    }
+
+    // model attirbute type이 Map
+    @RequestMapping("sub4")
+    public String sub4(Model model) {
+        model.addAttribute("attr",
+                Map.of("name","tiger",
+                        "age",20,
+                        "address","seoul",
+                        "1 my info","my name is trump"));
+
+        return "main5/sub4";
+    }
+
+
+    // 연습 : 아래 코드를 보고 main5/sub5.html을 완성
+    @RequestMapping("sub5")
+    public String sub5(Model model){
+        model.addAttribute("values",
+                Map.of("home","제주",
+                        "address","애월",
+                        "birth date","2010-01-01",
+                        "score",98.76
+                ));
+
+        return "main5/sub5";
+    }
+
+
+    @RequestMapping("sub6")
+    public String sub6(Model model){
+        model.addAttribute("car",
+                Map.of("model","아반데",
+                        "company","현대",
+                        "price",2004.12,
+                        "used","snrnsrk",
+                        "per user",46
+                ));
+
+        return "main5/sub6";
+    }
+
+    @RequestMapping("sub7")
+    public String sub7(Model model){
+        model.addAttribute("list", new String[]{"java","spring","html","css"} );
+
+        return "main5/sub7";
+    }
+
+    @RequestMapping("sub8")
+    public String sub8(Model model) {
+        model.addAttribute("skills", new String[]{"bootstrap", "thymeleaf", "react"});
+        return "main5/sub8";
+    }
+
+    // 연습 : 리스트의 원소들을 출력하는 html 완성
+    @RequestMapping("sub9")
+    public String sub9(Model model){
+        model.addAttribute("List", List.of("tesla","waymo","volvo","bmw"));
+        return "main5/sub9";
+    }
+
+    @RequestMapping("sub10")
+    public String sub10(Model model){
+        MyBean054 o = new MyBean054("trump", 77, List.of("1234", "5678", "0987"));
+
+        model.addAttribute("president",o);
+        return "main5/sub10";
+    }
+
+    @RequestMapping("sub11")
+    public String sub11(Model model){
+        MyBean055 o = new MyBean055(77, List.of("삼성","sk"), List.of("la", "seoul"));
+        model.addAttribute("person",o);
+
+        return "main5/sub11";
+    }
+
+    @RequestMapping("sub12")
+    public String sub12(Model model){
+        model.addAttribute("people", List.of(
+                new MyBean056("tesla",66,true),
+                new MyBean056("apple",77,false),
+                new MyBean056("uber",55,true)
+
+        ));
+                return "main5/sub12";
+    }
+
+    @RequestMapping("sub13")
+    public String sub13(Model model){
+
+        // name birthdate price
+
+
+        model.addAttribute("aiList",
+                List.of(new MyBean057("gemini","2020-01-01",3000),
+                        new MyBean057("chatgpt","1919-12-12",3500),
+                        new MyBean057("claude","1988-11-11",6000)
+                ));
+                return "main5/sub13";
     }
 }

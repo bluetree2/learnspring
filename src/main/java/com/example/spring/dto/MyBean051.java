@@ -7,4 +7,9 @@ public class MyBean051 {
     private String name;
     private String address;
     private Integer age;
+
+    // information (읽기) property
+     public String getInformation() {
+        return "이름은";
+    }
 }
