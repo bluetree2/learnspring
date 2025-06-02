@@ -6,6 +6,162 @@
 </head>
 <body>
 <h3>/main9/sub4</h3>
+<form action="">
+<!--    연습 : 여러 취미를 중복 선택 가능한 select 요소를 작성해보기 -->
+    <select name="hobby" id="" multiple>
+        <option value="baseball">야구</option>
+        <option value="football">축구</option>
+        <option value="basketball">농구</option>
+        <option value="tennis">테니스</option>
+    </select>
+
+
+
+<!--select : 여러 값 중에 선택 가능한 요소-->
+    <select name="contry" id="">
+        <option value="korea" selected>한국</option>
+        <option value="china">중국</option>
+        <option value="japen">일본</option>
+        <option value="us">미국</option>
+        <option value=""></option>
+    </select>
+</form>
+<form action=""></form>
+<div>
+<!--    textarea : 긴 텍스트 작성용-->
+    <textarea name="info3" id="" cols="30" rows="10"
+    placeholder="정보를 입력하세요"
+    required
+    readonly></textarea>
+</div>
+<div>
+<!--    textarea : 긴 텍스트 작성용-->
+    <textarea name="info2" id="" cols="30" rows="10">기본 텍스트 입력</textarea>
+</div>
+<dov>
+    <!--    textarea : 긴 텍스트 작성용-->
+    <textarea name="info1" id="" cols="30" rows="10">기본 텍스트 입력</textarea>
+</dov>
+
+<hr>
+
+<form th:action="@{/main9/sub13}">
+<!--    request handler method 를 보고 아래 input 요소들 만들기-->
+    <label for="input-city">도시</label>
+    <input type="text" id="input-city" name="city" value="">
+    <label for="input-age">나이</label>
+    <input type="number" id="input-age" name="age" value="">
+    <label for="input-score">점수</label>
+    <input type="number" id="input-score" name="score" value="" step="0.1">
+    <label for="fruits-apple">사과</label>
+    <input type="checkbox" id="fruits-apple" name="fruits" value="apple">
+    <label for="fruits-mango">망고</label>
+    <input type="checkbox" id="fruits-mango" name="fruits" value="mango">
+    <label for="fruits-banana">바나나</label>
+    <input type="checkbox" id="fruits-banana" name="fruits" value="banana">
+    <label for="fruits-melon">멜론</label>
+    <input type="checkbox" id="fruits-melon" name="fruits" value="melon">
+    <label for="fruits-watermelon">수박</label>
+    <input type="checkbox" id="fruits-watermelon" name="fruits" value="watermelon">
+    <label for="input-accepted">동의</label>
+    <input type="radio" id="input-accepted" name="accepted" value="true">
+    <label for="input-accepted">비동의</label>
+    <input type="radio" id="input-unaccepted" name="accepted" value="false" checked>
+    <input type="submit" value="전송">
+</form>
+
+
+<hr>
+
+<form action="">
+<!--    required : 필수 입력-->
+    <input type="text" name="city" required>
+<!--    multiple : 여러개 선택-->
+    <input type="file" name="f" id="" multiple>
+<!--    placeholder : 입력할 값의 hint -->
+    <input type="text" name="address" placeholder="주소를 입력하세요.">
+<!--    readonly : 변경 불가 -->
+    <input type="text" name="name" id="홍길동" readonly>
+</form>
+
+<hr>
+
+<form th:action="@{/main9/sub12}">
+<!--    연습 : 3개의 contry 중에 하나만 선택할 수 있는 radio 버튼 만들기-->
+    <div>
+        <label for="contry-korea">한국</label>
+        <input type="radio" name="contry" id="contry-korea">
+        <label for="contry-japen">일본</label>
+        <input type="radio" name="contry" id="contry-japen">
+        <label for="contry-america">미국</label>
+        <input type="radio" name="contry" id="contry-america">
+    </div>
+    <div>
+
+    <!-- radio button : 같은 name 중에 하나의 값만 선택 가능 -->
+        <label for="raido-mango">망고</label>
+        <input type="radio" name="fruit" id="raido-mango" value="mango">
+        <label for="raido-melon">멜론</label>
+        <input type="radio" name="fruit" id="raido-melon" value="melon" checked>
+        <label for="raido-apple">사과</label>
+        <input type="radio" name="fruit" id="raido-apple" value="apple">
+
+        <input type="submit" value="전송">
+    </div>
+</form>
+
+<hr>
+<form th:action="@{/main9/sub11}">
+    <label for="input-mango">
+    망고
+    </label>
+    <input type="checkbox" name="fruit" id="input-mango" value="mango">
+    <label for="input-melon">
+    멜론
+    </label>
+    <input type="checkbox" name="fruit" id="input-melon" value="melon">
+    <label for="input-apple">
+    사과
+    </label>
+    <input type="checkbox" name="fruit" id="input-apple" value="apple">
+    <label>
+        바나나
+        <input type="checkbox" name="fruit" value="banana">
+    </label>
+
+    <div>
+        <label for="input-text">
+            이름
+        </label>
+        <input type="text" id="input-text" name="name" value="머스크">
+    </div>
+
+</form>
+
+<hr>
+<form th:action="@{/main9/sub10}">
+    <div>
+        <input type="checkbox" name="hobby" id="" value="baseball"> 야구
+        <input type="checkbox" name="hobby" id="" value="basketball"> 농구
+        <input type="checkbox" name="hobby" id="" value="football"> 축구
+        <input type="checkbox" name="hobby" id="" value="rugby"> 럭비
+        <input type="checkbox" name="hobby" id="" value="cook"> 요리
+    </div>
+
+<!--    연습 : 체크하면 hello라는 값이 넘어 갈 수 있는 checkbox 만들기 -->
+    <div>
+        <input type="checkbox" name="greeting" value="hello" checked>
+    </div>
+<!--    checkbox-->
+    <div>
+        <input type="checkbox" name="accept" value="true">
+    </div>
+    <div>
+        <input type="submit" value="전송">
+    </div>
+</form>
+
+<hr>
 
 <form action="@{/main9/sub1">
     <div>
