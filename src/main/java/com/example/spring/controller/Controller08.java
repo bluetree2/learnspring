@@ -1,7 +1,7 @@
 package com.example.spring.controller;
 
 import com.example.spring.dto.MyBean053;
-import com.example.spring.dto.MyBean57;
+import com.example.spring.dto.MyBean057;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,11 +39,11 @@ public class Controller08 {
          */
 
         model.addAttribute("myList", List.of(
-                new MyBean57("lee", "01-01", 5000),
-                new MyBean57("kim", "02-02", 4000),
-                new MyBean57("son", "03-03", 6000),
-                new MyBean57("park", "04-04", 3000),
-                new MyBean57("choi", "05-05", 7000)));
+                new MyBean057("lee", "01-01", 5000),
+                new MyBean057("kim", "02-02", 4000),
+                new MyBean057("son", "03-03", 6000),
+                new MyBean057("park", "04-04", 3000),
+                new MyBean057("choi", "05-05", 7000)));
 
         return "main8/sub2";
     }
