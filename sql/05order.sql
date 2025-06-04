@@ -43,3 +43,21 @@ ORDER BY BirthDate DESC;
 SELECT *
 FROM Products
 ORDER BY CategoryID ASC, Price DESC ;
+
+SELECT Country, City, CustomerName
+FROM Customers
+ORDER BY Country, City;
+
+# 컬럼의 순서 사용
+SELECT Country, City, CustomerName
+FROM Customers
+ORDER BY 1, 2;
+
+SELECT ProductName, CategoryID, Price
+FROM Products
+ORDER BY Price DESC;
+
+SELECT ProductName, CategoryID, Price
+FROM Products
+ORDER BY 3 DESC;
+
