@@ -1,10 +1,14 @@
 package com.example.spring.controller;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.aop.config.AopConfigUtils;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -114,6 +118,73 @@ public class Controller12 {
 
     // : main12/sub9 view로 포워드 하고
         return "main12/sub9";
+    }
+    
+
+    @GetMapping("sub10")
+    public String sub10() {
+
+        return "main12/sub10";
+    }
+
+    // login page
+    @GetMapping("sub11")
+    public String sub11(Model model) {
+
+        return "main12/sub11";
+    }
+
+    // login 처리
+    @PostMapping("sub11")
+    public String sub11(String id, RedirectAttributes rttr) {
+        System.out.println(id + "로그인 처리");
+
+        rttr.addFlashAttribute("message",id+"님이 로그인 되었습니다");
+
+        return "redirect:/main12/sub10";
+    }
+    
+    // 연습 : 로그인 예제
+    // 메소드 3개
+    // main, login, login 처리
+    // html 2개
+    // main, login 페이지
+
+    @GetMapping("sub12")
+    public String sub12() {
+
+        return "main12/sub12";
+        
+    }
+    
+
+    @GetMapping("sub13")
+    public String sub13() {
+
+        return "main12/sub13";
+    }
+
+    @PostMapping("sub13")
+    public String sub13(String id, RedirectAttributes rttr, HttpSession session) {
+
+
+        session.setAttribute("userid", id);
+        rttr.addFlashAttribute("message",id+"님이 로그인 하셨습니다");
+
+        return "redirect:/main12/sub12";
+    }
+
+    @RequestMapping("sub11/logout")
+    public String sub11Logout(HttpSession session,RedirectAttributes rttr) {
+
+        // sesstion attribute 만 지우기
+//        session.removeAttribute("userid");
+        // session 객체 지우기
+        session.invalidate();
+
+        rttr.addFlashAttribute("message", "로그아웃 되었습니다.");
+
+        return "redirect:/main12/sub12";
     }
 
 
