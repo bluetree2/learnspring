@@ -1,7 +1,6 @@
 package com.example.spring.repository;
 
 import com.example.spring.entity.Entity18;
-import com.example.spring.entity.Entity19;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -45,19 +44,18 @@ public interface Entity18Repository extends JpaRepository<Entity18, Integer> {
 
     // 연습
     // SELECT * FROM supplier WHERE county IN (?, ?, ?) ORDER BY supplier_name
-    List<Entity19> findByCountryInOrderBySupplierName(List<String> country);
+    List<Entity18> findByCountryInOrderBySupplierName(List<String> country);
 
     //    SELECT * FROM supplier WHERE supplier_name LIKE :keyword ORDER BY supplier_name DESC
-    List<Entity19> findbySupplierNameContainerOrderBySupplierName(String supplierName);
+    List<Entity18> findbySupplierNameContainerOrderBySupplierName(String supplierName);
 
     void deleteByCountry(String country);
 
-    @Modifying // update, delete, insert에 붙이는 어노테이션
     @Query("""
-            DELETE FROM Entity16 e
+            DELETE FROM Entity18 e
             WHERE e.country = :country
             """)
-    void blukDeleteByCountry(String country);
+    void DeleteAllByCountry(String country);
     // query method 만들기
 
 

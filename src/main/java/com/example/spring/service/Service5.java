@@ -5,7 +5,7 @@ import com.example.spring.entity.Entity20;
 import com.example.spring.repository.Entity16Repository;
 import com.example.spring.repository.Entity18Repository;
 import com.example.spring.repository.Entity20Repository;
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.springframework.data.domain.Page;
@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -102,6 +103,56 @@ public class Service5 {
         // select 후 하나씩 지움 : 성능 이슈 있음
 //        entity16Repository.deleteByCountry(country);
         // jpql이나 sql 로 직접 작성해서 지워야함
-        entity18Repository.blukDeleteByCountry(country);
+        entity16Repository.blukDeleteByCountry(country);
+    }
+
+    @Transactional
+    public void action11(String country) {
+        // 성능 이슈
+//        entity18Repository.deleteByCountry(country);
+        entity18Repository.DeleteAllByCountry(country);
+    }
+
+    @Transactional
+    public void action12(String country) {
+        // update, delete, insert
+
+        // rollback 됨
+        // throw new RuntimeException();
+
+        // update, delete, insert
+    }
+
+    @Transactional
+    public void action13(String country) {
+        // update, delete, insert
+
+        // rollback 안됨
+        // throw new Exception();
+
+        // update, delete, insert
+    }
+
+    @Transactional
+    public void action14(String country) {
+        // update, delete, insert
+
+        // rollback 안됨
+        // throw new Exception();
+        if (true) {
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        // update, delete, insert
     }
 }

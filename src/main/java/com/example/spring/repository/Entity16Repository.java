@@ -4,6 +4,7 @@ import com.example.spring.entity.Entity16;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -104,4 +105,12 @@ public interface Entity16Repository extends JpaRepository<Entity16, Integer> {
     List<Entity16> findbycustomerNamecontainNameOrContactNameContaining(String s, PageRequest id);
 
     void deleteByCountry(String country);
+
+    @Modifying // update, delete, insert에 붙이는 어노테이션
+    @Query("""
+            DELETE FROM Entity16 e
+            WHERE e.country = :country
+            """)
+    void blukDeleteByCountry(String country);
+
 }
