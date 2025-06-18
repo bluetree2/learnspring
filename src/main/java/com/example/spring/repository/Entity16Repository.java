@@ -1,6 +1,7 @@
 package com.example.spring.repository;
 
 import com.example.spring.entity.Entity16;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -97,4 +98,10 @@ public interface Entity16Repository extends JpaRepository<Entity16, Integer> {
     // sql, jpql 안써도 됨
     // SELECT * FROM customer WHERE city = :city
     List<Entity16> findByCity(String city);
+
+    List<Entity16> findByCountry(String country, PageRequest id);
+
+    List<Entity16> findbycustomerNamecontainNameOrContactNameContaining(String s, PageRequest id);
+
+    void deleteByCountry(String country);
 }

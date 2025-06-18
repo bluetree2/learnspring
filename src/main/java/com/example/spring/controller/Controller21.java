@@ -154,5 +154,25 @@ public class Controller21 {
 
         return "main21/sub17";
     }
+    @GetMapping("sub18")
+    public String sub18() {
+        service3.action18();
+
+        return "main21/sub18";
+    }
+
+    @GetMapping("sub19")
+    public String sub19() {
+        service3.action19();
+
+        return "main21/sub19";
+    }
+
+    @GetMapping("sub20")
+    public String sub20() {
+        service3.action20();
+
+        return "main21/sub20";
+    }
 
 }
