@@ -117,3 +117,28 @@ CREATE TABLE my_table28
     category_id     INT NOT NULL ,
     FOREIGN KEY (category_id) REFERENCES my_table27 (id)
 );
+
+CREATE TABLE my_table29
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(10),
+    last_name VARCHAR(10),
+    birth_date DATE
+);
+
+CREATE TABLE my_table30
+(
+    id INT AUTO_INCREMENT PRIMARY KEY ,
+    order_date DATE,
+    info VARCHAR(20),
+    employee_id INT,
+    FOREIGN KEY (employee_id) REFERENCES my_table29(id)
+)
+
+# 연습 : 29,30 엔티티 만들기
+# repository * 2 만들기
+# insert 만들기
+# select 해보기
+
+# request handler method *4
+# service method *4

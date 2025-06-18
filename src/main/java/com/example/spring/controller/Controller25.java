@@ -3,6 +3,7 @@ package com.example.spring.controller;
 import com.example.spring.service.Service7;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -24,6 +25,33 @@ public class Controller25 {
         service7.action2();
         return "main25/sub2";
     }
+
+    // 직원 입력
+    @GetMapping("sub5")
+    public String sub5() {
+        service7.action5();
+        return "main25/sub5";
+    }
+
+    @GetMapping("sub6")
+    public String sub6() {
+        service7.action6();
+        return "main25/sub6";
+    }
+
+    @GetMapping("sub7")
+    public String sub7(Integer id) {
+        service7.action7(id);
+        return "main25/sub7";
+    }
+    
+    // 주문 조회
+    @GetMapping("sub8")
+    public String sub8(Integer id) {
+        service7.action8(id);
+        return "main25/sub8";
+    }
+
 
 
 }
