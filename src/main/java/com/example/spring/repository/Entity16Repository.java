@@ -97,13 +97,13 @@ public interface Entity16Repository extends JpaRepository<Entity16, Integer> {
      */
     List<Entity16> findByCountry(String country);
 
-    List<Entity16> findByCountry(String country, PageRequest id);
+    Page<Entity16> findByCountry(String country, PageRequest id);
     // sql, jpql 안써도 됨
     // SELECT * FROM customer WHERE city = :city
     List<Entity16> findByCity(String city);
 
 
-    List<Entity16> findByCustomerNameContainingOrContactNameContaining(String s, PageRequest id);
+    List<Entity16> findByCustomerNameContainingOrContactNameContaining(String keyword, String keyword1);
 
     Page<Entity16> findByCustomerNameContainingOrContactNameContaining(String keyword, String keyword1, Pageable pageable);
 

@@ -40,8 +40,13 @@ public class Service5 {
     }
 
     public void action3(String country, Integer page) {
-        List<Entity16> list = entity16Repository
-                .findByCountry(country, PageRequest.of(page - 1, 10, Sort.by("id").descending()));
+        Page<Entity16> pageContent = entity16Repository
+                .findByCountry(country,
+                        PageRequest.of(page - 1, 10, Sort.by("id").descending()));
+
+        List<Entity16> content = pageContent.getContent();
+        content.forEach(System.out::println);
+
     }
 
     public void action4(String keyword, Integer page) {

@@ -113,16 +113,16 @@ public class Service3 {
     }
 
     public void action13(String keyword) {
-        List<Entity17> data = entity17Repository.query3("%" + keyword + "%");
-        for (Entity17 entity17 : data) {
+        List<Entity17> list = entity17Repository.query3("%" + keyword + "%");
+        for (Entity17 entity17 : list) {
             System.out.println(entity17);
         }
     }
 
-    public void action14(String keyword) {
-        List<Entity17> data = entity17Repository.query3("%" + keyword + "%");
-        for (Entity17 entity17 : data) {
-            System.out.println(entity17);
+    public void action14(String country) {
+        List<Entity16> data = entity16Repository.findByCountry(country);
+        for (Entity16 entity16 : data) {
+            System.out.println(entity16);
         }
     }
 
@@ -159,7 +159,7 @@ public class Service3 {
             System.out.println(byCountryIn);
         }
 
-        List<Entity18> list4  = entity18Repository.findBySuppliernameLike("%an%");
+        List<Entity18> list4  = entity18Repository.findBySupplierNameLike("%an%");
         for (Entity18 entity18 : list4) {
             System.out.println(byCountryIn);
         }
@@ -247,7 +247,7 @@ public class Service3 {
             System.out.println(entity18);
         }
 
-        for (Entity18 entity18 : entity18Repository.findbySupplierNameContainerOrderBySupplierName("er")) {
+        for (Entity18 entity18 : entity18Repository.findBySupplierNameContainsOrderBySupplierNameDesc("er")) {
             System.out.println(entity18);
         }
 

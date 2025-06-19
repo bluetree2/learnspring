@@ -32,7 +32,7 @@ public interface Entity18Repository extends JpaRepository<Entity18, Integer> {
     SELECT * FROM supplier WHERE supplier_name LIKE :keyword
      */
     // keyword 에 %(wildcard) 붙여서 호출
-    List<Entity18> findBySuppliernameLike(String keyword);
+    List<Entity18> findBySupplierNameLike(String keyword);
 
     // keyword 에 % 안 붙여서 호출
     List<Entity18> findBySupplierNameContains(String keyword);
@@ -47,7 +47,7 @@ public interface Entity18Repository extends JpaRepository<Entity18, Integer> {
     List<Entity18> findByCountryInOrderBySupplierName(List<String> country);
 
     //    SELECT * FROM supplier WHERE supplier_name LIKE :keyword ORDER BY supplier_name DESC
-    List<Entity18> findbySupplierNameContainerOrderBySupplierName(String supplierName);
+    List<Entity18> findBySupplierNameContainsOrderBySupplierNameDesc(String supplierName);
 
     void deleteByCountry(String country);
 
