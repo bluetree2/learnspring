@@ -45,10 +45,15 @@ public class Service5 {
     }
 
     public void action4(String keyword, Integer page) {
+        // SELECT * FROM customer
+        // WHERE customer_name LIKE '%ed%' OR contact_name LIKE '%ed%'
         List<Entity16> list = entity16Repository
-                .findbycustomerNamecontainNameOrContactNameContaining("%"+keyword+"%", 
-                        PageRequest.of(page-1,10, Sort.by("id")
-                        .descending()));
+                .findByCustomerNameContainingOrContactNameContaining(keyword,
+                        keyword,
+                        PageRequest.of(page - 1, 10, Sort.by("id").descending()))
+                .getContent();
+
+        list.forEach(System.out::println);
     }
 
     public void action5(Integer id) {
@@ -80,7 +85,7 @@ public class Service5 {
     public void action8() {
         // 보통 service 의 하나의 메소드가 하나의 transaction 임
         // -> @Transactional 어노테이션을 service의 모든 메소드에 뭍여야 함
-        Entity20 a =  entity20Repository.findById("a").get();
+        Entity20 a = entity20Repository.findById("a").get();
         Entity20 b = entity20Repository.findById("b").get();
         a.setMoney(a.getMoney() - 500);
         entity20Repository.save(a);

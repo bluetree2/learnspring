@@ -114,4 +114,40 @@ from w3schools.Categories;
 INSERT INTO  my_table39
 (name, unit, price, category_id)
 select ProductID, Unit, ROUND(Price, 0), CategoryID+1
-from w3schools.Products;
+from w3schools.Products
+Limit 5;
+
+# 연습
+# projection
+#  OrderInfo interface * 1
+# Entity41 * 1
+# Entity41Repository * 1
+# Entity41Repository.query1() * 1
+# service.action() * 1
+# controller.sub() * 1
+
+CREATE TABLE my_table41 (
+    id          int primary key auto_increment,
+    order_date date ,
+    product_id  int,
+    quantity    int,
+    FOREIGN KEY (product_id) references my_table39 (id)
+);
+
+INSERT INTO my_table41
+(order_date, product_id, quantity)
+VALUES ('1998-01-01', 2, 12),
+       ('1999-02-02', 2, 2),
+       ('2000-03-03', 4, 34),
+       ('2001-04-04', 5, 42),
+       ('2002-05-05', 3, 5),
+       ('2003-06-06', 3, 6);
+
+
+select o.order_date, p.name product_name, p.price, o.quantity, c.name category_name
+from my_table39 p
+    join my_table40 c
+        on p.category_id = c.id
+    join my_table41 o
+        on o.product_id = o.id
+
