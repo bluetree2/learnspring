@@ -3,11 +3,13 @@ package com.example.spring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "my_table36", schema = "jpa")
 public class Entity36 {

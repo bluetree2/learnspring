@@ -3,16 +3,12 @@ package com.example.spring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
-@ToString
 @Entity
-@Table(name = "my_table34", schema = "jpa")
-public class Entity34 {
+@Table(name = "my_table39", schema = "jpa")
+public class Entity39 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -21,10 +17,14 @@ public class Entity34 {
     @Column(name = "name", length = 30)
     private String name;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
+    @Column(name = "unit", length = 30)
+    private String unit;
 
-    @Column(name = "info", length = 30)
-    private String info;
+    @Column(name = "price")
+    private Integer price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Entity40 category;
 
 }

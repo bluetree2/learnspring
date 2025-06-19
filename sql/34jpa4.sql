@@ -64,3 +64,54 @@ CREATE TABLE my_table36
 # 1. intellij 도움으로 만들기
 # 2. 지우고 직접 만들기
 
+create table my_table37
+(
+    email varchar(30) primary key ,
+    password varchar(30) not null,
+    info varchar(30) not null ,
+    inserted_at datetime not null  default now()
+);
+
+create table my_table38
+(
+    id int auto_increment primary key ,
+    title varchar(30) not null ,
+    content varchar(50) not null ,
+    auther varchar(30) not null ,
+    inserted_at datetime not null  default now(),
+    FOREIGN KEY (auther) references my_table37 (email)
+);
+
+create table my_table39
+(
+    id int primary key auto_increment,
+    name varchar(30),
+    unit varchar(30),
+    price int,
+    category_id int,
+    foreign key (category_id) references my_table40 (id)
+);
+
+# 카테고리 테이블
+ create table my_table40
+ (
+     id int primary key auto_increment,
+     name varchar(40),
+     description varchar(50)
+ )
+
+ select p.id, p.name product_name, p.price, c.name category_name
+ from my_table39 p
+ join my_table40 c on p.category_id = c.id;
+
+select * from  my_table39;
+select * from my_table40;
+
+INSERT INTO  my_table40
+    (name, description)
+select categoryname, SUBSTR(Description, 1,10)
+from w3schools.Categories;
+INSERT INTO  my_table39
+(name, unit, price, category_id)
+select ProductID, Unit, ROUND(Price, 0), CategoryID+1
+from w3schools.Products;
