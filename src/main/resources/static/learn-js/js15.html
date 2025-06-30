@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const a = {name: "kim", age:33,country:"korea"}
+  const {name, age, country} = a;
+  console.log(name);
+  console.log(age);
+  console.log(country);
+
+  //const name = "choi"
+  const {name: otherName, age:yourAge} = a;
+  console.log(otherName);
+  console.log(yourAge);
+
+  // 연습
+  const {anme: myName, age:ourAge} = a; // 코드 완성
+
+  console.log(myName);
+  console.log(ourAge);
+
+   // 기본값
+  const b = {address: "seoul", city:"강남"};
+  const {address, city, product = "apple"} = b
+  console.log(address);
+  console.log(city);
+  console.log(product);
+
+  // 연습
+  const d = {birth : "98-10-12", married:true, team:"korea"}
+  const {birth, company="tesla"} = d; // 코드 변경
+
+  console.log(birth); // 98-10-12
+  console.log(company) // tesla
+</script>
+
+</body>
+</html>
