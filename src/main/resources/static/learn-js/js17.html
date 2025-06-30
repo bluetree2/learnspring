@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 단락평가 (short circuit evaluation)
+
+    // &&, ||
+
+    //&& : 양 번이 둘다 true일 때 true, 나머지는 false
+    // true && true : true
+    // true && false : false
+    // false && true : false
+    // false && false : false
+    // 첫 항이 true 면 두번째 항 연상함
+    let a = 10;
+    let b = 30;
+    let r1 = (a++) < 0 && (b++) < 100;
+    console.log(a,b,r1);
+    let r2 = (a--) > 0 && (b++) < 100;
+    console.log(a,b,r2);
+
+    let r3 = (a++) < 0 && "hello";
+    console.log(a,b,r3);
+    let r4 = (a++) > 0 && "hi"; // trusy, falsy
+    console.log(a,b,r4);
+
+
+    // || : 양 변이 둘다 false일 때 false, 나머지는 true
+    // true || true : true
+    // true || false : true
+    // false || true : true
+    // false || false : false
+    // 첫번째 항이 false이면 두번재항 연산결과가 최종 결과
+    let c = 5;
+    let r5 = c > 0 || "hi"
+    console.log(r5); // true
+    let r6 = c < 0 || "hello"
+    console.log(r6); //
+</script>
+</body>
+</html>
