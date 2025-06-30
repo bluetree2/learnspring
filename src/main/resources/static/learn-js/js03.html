@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   function  action1(){
+        console.log("이름 있는 함수")
+    }
+
+    const bfunc = function(){
+        console.log("이름 없는 함수")
+    }
+
+    const cfunc = () => {
+        console.log("arrow function")
+    }
+
+    // 함수는 값
+    // 변수에 할당(대입)가능
+
+    // 함수 실행
+    action1() // 이름 있는 함수는 대부분 변수에 따로 할당하지는 않음
+    bfunc();
+    cfunc();
+
+    const xfunc = action1;
+    const yfunc = bfunc;
+    const zfunc = cfunc;
+
+</script>
+</body>
+</html>
